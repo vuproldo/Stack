@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
 
 #define MAX 100 // Максимальный размер стека
 
@@ -36,7 +35,7 @@ void push(Stack* stack, int item) {
 int pop(Stack* stack) {
     if (isEmpty(stack)) {
         printf("Stack is empty\n");
-        return INT_MIN; 
+        return 0; 
     }
     return stack->items[stack->top--];
 }
@@ -44,14 +43,15 @@ int pop(Stack* stack) {
 int peek(Stack* stack) {
     if (isEmpty(stack)) {
         printf("Stack is empty\n");
-        return INT_MIN;
+        return 0;
     }
     return stack->items[stack->top];
 }
 
 int main() {
     Stack* stack = createStack();
-
+    isEmplty(stack);
+    peek(stack);
     push(stack, 10);
     push(stack, 20);
     push(stack, 30);
